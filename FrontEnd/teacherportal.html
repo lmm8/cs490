@@ -1,0 +1,51 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="css/teacherportal.css">
+<script src="js/teacherportal.js"></script> 
+
+</head>
+
+<h1>Instructor Portal</h1>
+
+<div class="btn-group" style="width:100%">
+  <button id ="qchoices" value = "qchoices" onclick = "choices()">View the Question Bank</button>
+  <button onclick="addquestion()">Add a question</button>
+  <button onclick="choices2()">Create a Test</button>
+  <button onclick="showtaken()">View Tests to be graded</button>
+  <button>View All tests</button>
+  <button>View Student's Progress</button>
+</div>
+
+<br><br>
+
+<div class="news">
+	<p id = "unfinished tests"> </p>
+	<p id = "ungraded tests"> </p>
+</div>
+
+<div class="left">
+
+	<div class ="split">
+   <p id="questionchoicebuttons"> </p>
+   <p id="quizchoicebuttons"> </p>
+	
+		<p id="questionchoice"> </p>
+	</div>
+		<p id="addquestion" align="left"> </p>
+
+		<p id="questionbuttons" > </p>
+
+		<p id="questions"> </p>
+		<p id="sendbutton"> </p>
+</div>
+
+
+<div class="right">
+	<div class = "rightsplit">
+    <p id="previewtest"></p>
+ 		<p id="previewtestbuttons"> </p>
+	</div>
+</div>
+
+</html>

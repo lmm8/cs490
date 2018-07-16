@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+function login(form) {
+	var user = form.user.value;
+	var pass = form.pass.value;
+	var xhr = new XMLHttpRequest();
+	document.getElementByID("inlogin").innerHTML = "inhere";
+	xhr.open("POST", "https://web.njit.edu/~lmm8/frontendlogin.php", true);
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			dPrint(this.responseText);
+			var jdata = JSON.parse(this.responseText);
+			if (jdata.db_response == "approved"){
+				if (jdata.role == "T"){
+					window.location.replace("https:web.njit.edu/~lmm8/teacherportal.html");
+				}
+				if (jdata.role = "S"){
+					window.location.replace("https:web.njit.edu/lmm8/studentportal.html");
+				}
+			}
+		else {
+			document.getElementById("failstatus").innerHTML = "Invalid Username or Password";
+			}
+		}	
+	}
+xhr.send("user="+user+"&pass="+pass);
+}
+
+window.addEventListener(window, "load", function() {
+	var loginform = document.getElementById("loginform");
+	window.addEventListener(loginfrom, "submit", function(){
+		login(loginform);
+	});
+});
+</script>
+
+<form id="loginform" onsubmit="return false">
+    <h1>Login Form</h1>
+    <div class="FormRow">
+        <label for="user">Username:</label>
+        <input type="text" size="15" id="user" name="Username">
+    </div>
+    <div class="FormRow">
+        <label for="pass">Password:</label>
+        <input type="password" size="15" id="pass" name="Password">
+    </div>
+    <div class="FormRow" id="LoginButtonDiv">
+        <input type="submit" value="Login">
+    </div>
+</form>
